@@ -16,7 +16,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const getUsers = async () => {
-    const res = await axios.get(`http://localhost:6005/api/getusers?search=${search}&page=${page}`);
+    const res = await axios.get(`https://bnv-assignment.onrender.com/api/getusers?search=${search}&page=${page}`);
     if (res.status === 200) {
       setUsers(res.data.usersdata);
       setPageCount(res.data.Pagination.pageCount);
@@ -24,7 +24,7 @@ const Home = () => {
   };
 
   const handleDelete = async (id) => {
-    const res = await axios.delete(`http://localhost:6005/api/deleteuser/${id}`);
+    const res = await axios.delete(`https://bnv-assignment.onrender.com/api/deleteuser/${id}`);
     if(res.status === 200){
       toast.success("User Deleted Successfully");
       getUsers();
@@ -32,7 +32,7 @@ const Home = () => {
   };
 
   const exportCsv = () => {
-    window.open("http://localhost:6005/api/exportcsv", "_blank");
+    window.open("https://bnv-assignment.onrender.com/api/exportcsv", "_blank");
   }
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const Home = () => {
           onClick={async () => {
             if (status !== element.status) {
               try {
-                const res = await axios.put(`http://localhost:6005/api/status/${element._id}`, { status });
+                const res = await axios.put(`https://bnv-assignment.onrender.com/api/status/${element._id}`, { status });
                 if(res.status === 200){
                   toast.success(`Status updated to ${status}`);
                   getUsers(); // refresh table
@@ -115,7 +115,7 @@ const Home = () => {
 
               <td >
                 <img
-                src={`http://localhost:6005/uploads/${element.profile}`}
+                src={`https://bnv-assignment.onrender.com/uploads/${element.profile}`}
                 alt="profile"
                 style={{ width: 25, borderRadius: '50%' }}
                 onError={(e) => {

@@ -23,7 +23,7 @@ const Edit = () => {
 
   // 1. Fetch User Data to Populate Form
   const getuser = async () => {
-    const res = await axios.get(`http://localhost:6005/api/getuser/${id}`);
+    const res = await axios.get(`https://bnv-assignment.onrender.com/api/getuser/${id}`);
     if (res.status === 200) {
       setInputData(res.data);
       setStatus(res.data.status);
@@ -60,7 +60,7 @@ const Edit = () => {
 
     const config = { headers: { "Content-Type": "multipart/form-data" } }
     
-    const res = await axios.put(`http://localhost:6005/api/updateuser/${id}`, data, config);
+    const res = await axios.put(`https://bnv-assignment.onrender.com/api/updateuser/${id}`, data, config);
     if (res.status === 200) {
       toast.success("User Updated Successfully");
       setTimeout(() => { navigate("/") }, 2000);
@@ -76,7 +76,7 @@ const Edit = () => {
       <h2 className='text-center mt-1'>Update User Details</h2>
       <Card className='shadow mt-3 p-3'>
         <div className='profile_div text-center'>
-          <img src={preview ? preview : `http://localhost:6005/uploads/${imgdata}`} alt="img" style={{ maxWidth: "50px", borderRadius: "50%" }} />
+          <img src={preview ? preview : `https://bnv-assignment.onrender.com/uploads/${imgdata}`} alt="img" style={{ maxWidth: "50px", borderRadius: "50%" }} />
         </div>
         <Form>
           <Row>

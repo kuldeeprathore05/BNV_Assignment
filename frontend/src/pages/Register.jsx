@@ -47,7 +47,7 @@ const Register = () => {
     data.append("location", location);
 
     const config = { headers: { "Content-Type": "multipart/form-data" } };
-    const res = await axios.post("http://localhost:6005/api/register", data, config);
+    const res = await axios.post("https://bnv-assignment.onrender.com/api/register", data, config);
 
     if (res.status === 200) {
       toast.success("User Registered Successfully");

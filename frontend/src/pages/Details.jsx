@@ -10,7 +10,7 @@ const Details = () => {
   const navigate = useNavigate();
 
   const getuser = async () => {
-    const res = await axios.get(`http://localhost:6005/api/getuser/${id}`);
+    const res = await axios.get(`https://bnv-assignment.onrender.com/api/getuser/${id}`);
     if (res.status === 200) {
       setUser(res.data);
     }
@@ -28,7 +28,7 @@ const Details = () => {
           <div className="row">
             <div className="left_view col-lg-6 col-md-6 col-12">
               <img
-                src={`http://localhost:6005/uploads/${user.profile}`}
+                src={`https://bnv-assignment.onrender.com/uploads/${user.profile}`}
                 alt="profile"
                 style={{ width: 50, borderRadius: '50%' }}
                 onError={(e) => {
